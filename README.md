@@ -1,37 +1,39 @@
-## Welcome to GitHub Pages
+# VgmPlayer
 
-You can use the [editor on GitHub](https://github.com/pensactius/VGMPlayerSD/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
+Video Game Music (vgm) file player library.
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+VgmPlayer provides a simple library to read VGM files from SD card and play them on real audio hardware chips. 
 
-### Markdown
+Chips supported:
+- SN-76489
+- YM-2612 (_FM only, not fully tested!_)
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+The following boards are supported:
+- Arduino UNO/Nano 
+- Arduino Mega 2560
 
-```markdown
-Syntax highlighted code block
+VGM files can be downloaded from http://vgmrips.net/packs/chip/sn76489. Keep in mind these are compressed files and **MUST** be decompressed before they can be read from the library.  
 
-# Header 1
-## Header 2
-### Header 3
+The library includes a few sample songs in the **songs** directory. They have already been decompressed and can be used directly from the library.
+### Conexiones
 
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
+Conexion SN 76489:
+```
+clk (14) ...... Arduino D11
+~WE ( 5) ...... Arduino D12
+Ready(4) ...... N.C
+~OE ( 6) ...... Arduino (D10) (Conectar a GND si se necesita este PIN)
+D0 - D7  ...... Arduino D9 - D2 (D0 sn76489 <--> D9 Arduino, etc.)
+VCC (16) ...... ARduino (+5V)
+GND ( 8) ...... Arduino (GND)
 ```
 
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/pensactius/VGMPlayerSD/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+### Contenido del directorio
+```
+ sn76489_vgm_player                => Carpeta del proyecto Arduino
+  ├── sn76489_vgm_player.ino       => Fichero principal Arduino
+  ├── sn76489.h/.cpp               => Funciones de control y escritura al IC sn76489
+  ├── VGMPlayer.h/.cpp             => Funciones para reproducir el archivo de música
+  ├── vgmdata.h                    => Volcado del archivo VGM en formato de array (vgm_song[])  
+  └── Readme.md                    => Este archivo
+```
