@@ -4,7 +4,7 @@
 const uint8_t kWePin { A0 };
 
 // Fichero VGM (descomprimido)
-const char* const kSongName { "songs/Defender2" };
+const char* const kSongName { "songs/Lemming1" };
 
 // Objeto para el chip de audio SN-76489
 Sn76489 psg (kWePin);
@@ -16,7 +16,11 @@ VgmPlayer player (1, &psg);
 
 void setup()
 {
+  // Arduino UNO/Nano usa pin0 y pin1 y por
+  // tanto no pueden usar transmisiones serie.
+#if not defined (__AVR_ATmega328P__)
   Serial.begin (9600);
+#endif  
   
   // Inicialización del reproductor
   player.begin();
@@ -33,7 +37,7 @@ void setup()
     Serial.println (player.getVgm().getSystem());
 
     // Reproduce la canción!
-    player.play();
+    player.play(true);
   }
   else {
     Serial.println ( F("VGM file not found") ); 

@@ -13,7 +13,7 @@ Ym2612::Ym2612 (uint8_t icPin, uint8_t csPin, uint8_t wrPin, uint8_t rdPin, uint
   pinMode (_a1Pin, OUTPUT);
 
   // DATA bus.
-  DDRA = 0xFF;
+  _dataControl = 0xFF;
 
   // icPin, csPin, WR and RD HIGH by default 
   digitalWrite (_icPin, 1);
@@ -40,7 +40,7 @@ void Ym2612::_write (uint8_t data)
   // csPin low
   digitalWrite(_csPin, 0);
   // data to bus
-  PORTA = data;
+  _dataPort = data;
   // write data
   digitalWrite(_wrPin, 0); 
   delayMicroseconds(1);

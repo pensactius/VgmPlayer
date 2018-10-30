@@ -35,8 +35,23 @@ public:
 
 private:
 	void _write (uint8_t data);
+
 	// Control bus pins.
 	uint8_t	_icPin, _csPin, _wrPin, _rdPin, _a0Pin, _a1Pin;
+
+#if defined (__AVR_ATmega328P__)    // Arduino UNO, Pro, etc.
+
+  uint8_t _dataPort = PORTD;        // Data bus in D0-D7
+  uint8_t _dataControl = DDRD;
+
+#elif defined (__AVR_ATmega2560__)  // Arduino Mega 2560  
+
+  uint8_t _dataPort = PORTA;        // Data bus in PA0-PA7
+  uint8_t _dataControl = DDRA;
+
+#else 
+#error Unsopported hardware
+#endif  	
 };
 /*
 // Pinmap (Arduino UNO compatible)

@@ -35,9 +35,9 @@ class VgmPlayer
 {
 public:
   VgmPlayer(uint8_t noChips, Sn76489* sn76489=nullptr, Ym2612* ym2612=nullptr);
-  bool begin();
+  bool begin(uint8_t chipSelect=kChipSelect);
   bool read(const String &fileName);
-  void play();
+  void play(bool loop);
   const VgmReader &getVgm () const { return _vgm; }
   
 private:

@@ -22,7 +22,8 @@
 #define BUFSIZE 128  
 #elif defined (__AVR_ATmega2560__)  // Arduino Mega 2560
 #define BUFSIZE 2048
-#else Unsupported hardware
+#else 
+#error Unsopported hardware
 #endif  
 
 #include "Gd3.h"

@@ -22,7 +22,7 @@
 
 Sn76489::Sn76489(uint8_t wePin) : _wePin (wePin) 
 {
-  DDRA = 0xFF;                  // Data bus is in PA0-PA7
+  _dataControl = 0xFF;                  // Data bus is in PA0-PA7
   pinMode (_wePin, OUTPUT);
   digitalWrite (_wePin, HIGH);
 }
@@ -36,7 +36,7 @@ void Sn76489::reset()
 void Sn76489::write(uint8_t data)
 {
   digitalWrite (_wePin, 1);   // ~WE HIGH  
-  PORTA = data;               // data to bus
+  _dataPort = data;
   digitalWrite (_wePin, 0);   // ~WE LOW
   delayMicroseconds (14);
   digitalWrite (_wePin, 1);   // ~WE HIGH

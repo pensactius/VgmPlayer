@@ -31,8 +31,24 @@ public:
    Sn76489(uint8_t wePin);    // Create and init audio chip
    void reset();              // Reset and silence audio chip
    void write(uint8_t data);  // Write data to audio chip
+
 private:
+   // Control bus pins.
    uint8_t _wePin;   
+
+#if defined (__AVR_ATmega328P__)              // Arduino UNO, Nano, etc.
+
+  volatile uint8_t& _dataPort = PORTD;        // Data bus in D0-D7
+  volatile uint8_t& _dataControl = DDRD;
+
+#elif defined (__AVR_ATmega2560__)            // Arduino Mega 2560  
+
+  volatile uint8_t& _dataPort = PORTA;        // Data bus in PA0-PA7
+  volatile uint8_t& _dataControl = DDRA;
+
+#else 
+#error Unsopported hardware
+#endif     
 };
 
 #endif

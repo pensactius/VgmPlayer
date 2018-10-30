@@ -15,7 +15,6 @@
    along with this program; if not, write to the Free Software Foundation,
    Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301  USA 
 */
-#include "config.h"
 #include "VgmPlayer.h"
 #include "VgmReader.h"
 #include "AudioChips/Sn76489.h"
@@ -32,10 +31,10 @@ VgmPlayer::VgmPlayer(uint8_t noChips=0,
   _audioReset();
 }
 
-bool VgmPlayer::begin()
+bool VgmPlayer::begin(uint8_t chipSelect=kChipSelect)
 {
   // Try to initialize the SD Card
-  if ( !_sd.begin ( kChipSelect, SD_SCK_MHZ (50 ) ) ) {
+  if ( !_sd.begin ( chipSelect, SD_SCK_MHZ (50 ) ) ) {
     Serial.print ( F( "SD init failed!" ) );
     _sd.initErrorHalt ();
   }
@@ -59,7 +58,7 @@ bool VgmPlayer::read(const String &fileName)
   return true;
 }
 
-void VgmPlayer::play()
+void VgmPlayer::play(bool loop)
 {
   unsigned long singleSampleWait {0};
   const float sampleRate = 44100.0;
@@ -206,7 +205,7 @@ void VgmPlayer::play()
       case 0x66:
       {
         // loop switch activated?
-        if (digitalRead(LOOP_PIN) == 0) {
+        if (loop) {
           _vgm.loop();
           Serial.println(F("End of Song Data (Loop)"));
         }
