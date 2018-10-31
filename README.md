@@ -1,8 +1,6 @@
-# VgmPlayer
+# Vgm Player Library
 
-Video Game Music (vgm) file player library.
-
-VgmPlayer provides a simple library to read VGM files from SD card and play them on real audio hardware chips. 
+The Vgm Player Library provides a simple library to read Video Game Music (VGM) files from an SD card and play them on real hardware audio chips. 
 
 Chips supported:
 - SN-76489

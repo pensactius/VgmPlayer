@@ -22,10 +22,11 @@
 
 Sn76489::Sn76489(uint8_t wePin) : _wePin (wePin) 
 {
-  _dataControl = 0xFF;                  // Data bus is in PA0-PA7
-  pinMode (_wePin, OUTPUT);
-  digitalWrite (_wePin, HIGH);
+  _dataControl = 0xFF;          // Data BUS as OUTPUT
+  pinMode (_wePin, OUTPUT);     // ~WE OUTPUT
+  digitalWrite (_wePin, HIGH);  // Disable chip by default
 }
+
 void Sn76489::reset()
 {
   write (0x9F); // Silence channel 1
@@ -33,52 +34,12 @@ void Sn76489::reset()
   write (0xDF); // Silence channel 3
   write (0xFF); // Silence noise channel
 }
+
 void Sn76489::write(uint8_t data)
 {
-  digitalWrite (_wePin, 1);   // ~WE HIGH  
-  _dataPort = data;
-  digitalWrite (_wePin, 0);   // ~WE LOW
-  delayMicroseconds (14);
-  digitalWrite (_wePin, 1);   // ~WE HIGH
+  digitalWrite (_wePin, 1);     // ~WE HIGH  
+  _dataPort = data;             // Data to BUS
+  digitalWrite (_wePin, 0);     // ~WE LOW
+  delayMicroseconds (14); 
+  digitalWrite (_wePin, 1);     // ~WE HIGH
 }
-/*
-void SN76489WriteData(char data) {
-digitalWrite (PSG_WE, 1); // _WE HIGH
-
-#ifdef ARDUINO_UNO
-  // Envia bits 5-0 a PD7-PD2
-  PORTD = (PORTD & 0x02) | ( (data & B00111111) << 2 );
-  
-  // Envia bits 7-6 a PB1-PB0
-  PORTB = (PORTB & 0xfc) | ( (data & B11000000) >> 6 );  
-#endif
-#ifdef ARDUINO_DUE
-  // Send data byte to C2-C9 (pin 34 .. pin 41)
-  PIOC->PIO_OWER = 0x03FE;
-  PIOC->PIO_ODSR = data << 2;
-#endif
-#ifdef ARDUINO_MEGA
-  // Send data byte to PA0-PA7 (pin 22 .. pin 29)
-  PORTA = data;
-#endif
-
-  // ~WE and ~CE low (active)
-  digitalWrite(PSG_WE, 0); 
-  delayMicroseconds (14);  
-  // ~WE and ~CE high (inactive)
-  digitalWrite(PSG_WE, 1);
-}
-
-void SN76489SetBus() {
-// On all boards A0 is ~WE for SN-76489 and it's an OUTPUT.
-  pinMode(PSG_WE, OUTPUT);
-  digitalWrite (PSG_WE, HIGH);
-}
-
-void SN76489_Off() {
-  SN76489WriteData(B10011111);
-  SN76489WriteData(B10111111);
-  SN76489WriteData(B11011111);
-  SN76489WriteData(B11111111);
-}
-*/

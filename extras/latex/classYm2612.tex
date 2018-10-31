@@ -1,0 +1,47 @@
+\hypertarget{classYm2612}{}\section{Ym2612 Class Reference}
+\label{classYm2612}\index{Ym2612@{Ym2612}}
+
+
+Audio chip Ym-\/2612 class.  
+
+
+
+
+{\ttfamily \#include $<$Ym2612.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classYm2612_a350c1ceb0e284eaa9aaa238758a13e67}\label{classYm2612_a350c1ceb0e284eaa9aaa238758a13e67}} 
+{\bfseries Ym2612} (uint8\+\_\+t ic\+Pin, uint8\+\_\+t cs\+Pin, uint8\+\_\+t wr\+Pin, uint8\+\_\+t rd\+Pin, uint8\+\_\+t a0\+Pin, uint8\+\_\+t a1\+Pin)
+\item 
+\mbox{\Hypertarget{classYm2612_a0bba8e22b38e72b7f1a4efd2745b0c6b}\label{classYm2612_a0bba8e22b38e72b7f1a4efd2745b0c6b}} 
+void {\bfseries reset} ()
+\item 
+\mbox{\Hypertarget{classYm2612_a01cab1ab6324f32271f3406aefbfb7ab}\label{classYm2612_a01cab1ab6324f32271f3406aefbfb7ab}} 
+void {\bfseries write} (uint8\+\_\+t reg, uint8\+\_\+t data, uint8\+\_\+t port=0)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Audio chip Ym-\/2612 class. 
+
+Y\+M2612 test code for A\+VR.
+
+This program is a simple test code for the Y\+M2612 FM sound chip using an A\+VR A\+Tmega328p mcu. This program configure the Y\+M2612 to sound like a \char`\"{}grand piano\char`\"{} and play note on / note off in loop. For more informations about wiring please see\+: \href{http://en.wikipedia.org/wiki/Yamaha_YM2612}{\tt http\+://en.\+wikipedia.\+org/wiki/\+Yamaha\+\_\+\+Y\+M2612} For more informations about Y\+M2612 registers please see\+: \href{http://www.smspower.org/maxim/Documents/YM2612}{\tt http\+://www.\+smspower.\+org/maxim/\+Documents/\+Y\+M2612}
+
+\begin{DoxyRemark}{Remarks}
+This test code is heavly based on Furrtek\textquotesingle{}s Y\+M2612 test code. Big thanks Furrtek for the help ! 
+\end{DoxyRemark}
+\begin{DoxyWarning}{Warning}
+This test code is made to run on an A\+Tmega328/\+A\+Tmega168 mcu with a 16\+M\+Hz external crystal.
+\end{DoxyWarning}
+\begin{DoxyAuthor}{Author}
+Fabien Batteix \href{mailto:skywodd@gmail.com}{\tt skywodd@gmail.\+com} \mbox{\hyperlink{}{My Blog about electronics }}
+\end{DoxyAuthor}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/\+Audio\+Chips/Ym2612.\+h\item 
+src/\+Audio\+Chips/ym2612.\+cpp\end{DoxyCompactItemize}

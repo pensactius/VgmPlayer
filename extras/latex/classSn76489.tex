@@ -1,0 +1,67 @@
+\hypertarget{classSn76489}{}\section{Sn76489 Class Reference}
+\label{classSn76489}\index{Sn76489@{Sn76489}}
+
+
+Class for interfacing with S\+N-\/76489 hardware audio chip.  
+
+
+
+
+{\ttfamily \#include $<$Sn76489.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classSn76489_a16f9e53fdd1e9d7841f520e5600130cd}{Sn76489}} (uint8\+\_\+t we\+Pin)
+\item 
+void \mbox{\hyperlink{classSn76489_a904bb7ddb48bb425181bcdae443c49fb}{reset}} ()
+\item 
+void \mbox{\hyperlink{classSn76489_a5add4d0735cd8edbd03eb1c54bd09532}{write}} (uint8\+\_\+t data)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Class for interfacing with S\+N-\/76489 hardware audio chip. 
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classSn76489_a16f9e53fdd1e9d7841f520e5600130cd}\label{classSn76489_a16f9e53fdd1e9d7841f520e5600130cd}} 
+\index{Sn76489@{Sn76489}!Sn76489@{Sn76489}}
+\index{Sn76489@{Sn76489}!Sn76489@{Sn76489}}
+\subsubsection{\texorpdfstring{Sn76489()}{Sn76489()}}
+{\footnotesize\ttfamily Sn76489\+::\+Sn76489 (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{we\+Pin }\end{DoxyParamCaption})}
+
+Constructor with $\sim$\+WE pin selection. Creates the S\+N-\/76489 object and initializes the audio chip.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em we\+Pin} & Pin where $\sim$\+WE is connected. \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classSn76489_a904bb7ddb48bb425181bcdae443c49fb}\label{classSn76489_a904bb7ddb48bb425181bcdae443c49fb}} 
+\index{Sn76489@{Sn76489}!reset@{reset}}
+\index{reset@{reset}!Sn76489@{Sn76489}}
+\subsubsection{\texorpdfstring{reset()}{reset()}}
+{\footnotesize\ttfamily void Sn76489\+::reset (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Reset and silence all voices of the audio chip. \mbox{\Hypertarget{classSn76489_a5add4d0735cd8edbd03eb1c54bd09532}\label{classSn76489_a5add4d0735cd8edbd03eb1c54bd09532}} 
+\index{Sn76489@{Sn76489}!write@{write}}
+\index{write@{write}!Sn76489@{Sn76489}}
+\subsubsection{\texorpdfstring{write()}{write()}}
+{\footnotesize\ttfamily void Sn76489\+::write (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{data }\end{DoxyParamCaption})}
+
+Writes a data byte to the audio chip.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em data} & Byte value to send to the audio chip. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/\+Audio\+Chips/\mbox{\hyperlink{Sn76489_8h}{Sn76489.\+h}}\item 
+src/\+Audio\+Chips/Sn76489.\+cpp\end{DoxyCompactItemize}

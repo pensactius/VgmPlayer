@@ -1,19 +1,42 @@
-/* VgmPlayerSD, a Video Game Music player with Arduino and hardware audio ICs.
-   Copyright (C) 2018  Andrés Mata Bretón
-
-   This program is free software; you can redistribute it and/or modify
-   it under the terms of the GNU General Public License as published by
-   the Free Software Foundation; either version 3 of the License, or
-   (at your option) any later version.
-
-   This program is distributed in the hope that it will be useful,
-   but WITHOUT ANY WARRANTY; without even the implied warranty of
-   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-   GNU General Public License for more details.
-
-   You should have received a copy of the GNU General Public License
-   along with this program; if not, write to the Free Software Foundation,
-   Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301  USA 
+/*!
+ * @file VgmPlayer.cpp
+ *
+ * @mainpage Vgm Player library
+ *
+ * @section intro_sec Introduction
+ *
+ * This is the documentation for Vgm Player Library for the
+ * Arduino platform. The Vgm Player Library provides a simple 
+ * library to read Video Game Music (VGM) files from an SD card 
+ * and play them on real hardware audio chips. 
+ *
+ * @section dependencies Dependencies
+ *
+ * This library depends on <a href="https://github.com/greiman/SdFat">
+ * SdFat</a> being present on your system. Please make sure you have
+ * installed the latest version before using this library.
+ *
+ * @section author Author
+ *
+ * Written by Andrés Mata for PensActius.
+ *
+ * @section license License
+ *
+ * Copyright (C) 2018  Andrés Mata Bretón
+ *
+ *  This program is free software; you can redistribute it and/or modify
+ *  it under the terms of the GNU General Public License as published by
+ *  the Free Software Foundation; either version 3 of the License, or
+ *  (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program; if not, write to the Free Software Foundation,
+ * Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301  USA 
 */
 #include "VgmPlayer.h"
 #include "VgmReader.h"
