@@ -1,0 +1,83 @@
+\hypertarget{classYm2413}{}\section{Ym2413 Class Reference}
+\label{classYm2413}\index{Ym2413@{Ym2413}}
+
+
+Class for interfacing with Y\+M-\/2413 hardware audio chip.  
+
+
+
+
+{\ttfamily \#include $<$Ym2413.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classYm2413_ac7d4c6006a15a3c28f456027540a7ffc}{Ym2413}} (uint8\+\_\+t cs\+Pin, uint8\+\_\+t we\+Pin, uint8\+\_\+t Ao\+Pin, uint8\+\_\+t ic\+Pin)
+\item 
+void \mbox{\hyperlink{classYm2413_a826e19d5236517bd5eedc1f9665495d2}{reset}} ()
+\item 
+void \mbox{\hyperlink{classYm2413_a23ad08f449b2fc58671802f853ade7d9}{mute}} ()
+\item 
+void \mbox{\hyperlink{classYm2413_ae0a5d7f90288c0753943efe28fad6224}{write}} (uint8\+\_\+t reg, uint8\+\_\+t data)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Class for interfacing with Y\+M-\/2413 hardware audio chip. 
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classYm2413_ac7d4c6006a15a3c28f456027540a7ffc}\label{classYm2413_ac7d4c6006a15a3c28f456027540a7ffc}} 
+\index{Ym2413@{Ym2413}!Ym2413@{Ym2413}}
+\index{Ym2413@{Ym2413}!Ym2413@{Ym2413}}
+\subsubsection{\texorpdfstring{Ym2413()}{Ym2413()}}
+{\footnotesize\ttfamily Ym2413\+::\+Ym2413 (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{cs\+Pin,  }\item[{uint8\+\_\+t}]{we\+Pin,  }\item[{uint8\+\_\+t}]{Ao\+Pin,  }\item[{uint8\+\_\+t}]{ic\+Pin }\end{DoxyParamCaption})}
+
+Constructor with both $\sim$\+CS, $\sim$\+WE and $\sim$\+Ao pin selection. Creates the Y\+M-\/2413 object and initializes the audio chip.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em cs\+Pin} & Pin where $\sim$\+CS is connected. \\
+\hline
+\mbox{\tt in}  & {\em we\+Pin} & Pin where $\sim$\+WE is connected. \\
+\hline
+\mbox{\tt in}  & {\em Ao\+Pin} & Pin where $\sim$\+A0 is connected. \\
+\hline
+\mbox{\tt in}  & {\em ic\+Pin} & Pin where $\sim$\+IC is connected. \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classYm2413_a23ad08f449b2fc58671802f853ade7d9}\label{classYm2413_a23ad08f449b2fc58671802f853ade7d9}} 
+\index{Ym2413@{Ym2413}!mute@{mute}}
+\index{mute@{mute}!Ym2413@{Ym2413}}
+\subsubsection{\texorpdfstring{mute()}{mute()}}
+{\footnotesize\ttfamily void Ym2413\+::mute (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Mutes all voices of the audio chip. \mbox{\Hypertarget{classYm2413_a826e19d5236517bd5eedc1f9665495d2}\label{classYm2413_a826e19d5236517bd5eedc1f9665495d2}} 
+\index{Ym2413@{Ym2413}!reset@{reset}}
+\index{reset@{reset}!Ym2413@{Ym2413}}
+\subsubsection{\texorpdfstring{reset()}{reset()}}
+{\footnotesize\ttfamily void Ym2413\+::reset (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Resets and mutes all voices of the audio chip. \mbox{\Hypertarget{classYm2413_ae0a5d7f90288c0753943efe28fad6224}\label{classYm2413_ae0a5d7f90288c0753943efe28fad6224}} 
+\index{Ym2413@{Ym2413}!write@{write}}
+\index{write@{write}!Ym2413@{Ym2413}}
+\subsubsection{\texorpdfstring{write()}{write()}}
+{\footnotesize\ttfamily void Ym2413\+::write (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{reg,  }\item[{uint8\+\_\+t}]{data }\end{DoxyParamCaption})}
+
+Writes \textquotesingle{}data\textquotesingle{} value to register \textquotesingle{}reg\textquotesingle{}
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em reg} & Register address selection \\
+\hline
+\mbox{\tt in}  & {\em data} & Data value to write into register \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/\+Audio\+Chips/\mbox{\hyperlink{Ym2413_8h}{Ym2413.\+h}}\item 
+src/\+Audio\+Chips/Ym2413.\+cpp\end{DoxyCompactItemize}

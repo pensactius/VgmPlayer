@@ -12,9 +12,13 @@ Class for interfacing with S\+N-\/76489 hardware audio chip.
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{classSn76489_a16f9e53fdd1e9d7841f520e5600130cd}{Sn76489}} (uint8\+\_\+t we\+Pin)
+\mbox{\hyperlink{classSn76489_adaca4f1b936a9cc43405391f3f442696}{Sn76489}} (uint8\+\_\+t oe\+Pin, uint8\+\_\+t we\+Pin)
+\item 
+\mbox{\hyperlink{classSn76489_aabb1ef1f5c22859a40def06b66dca93f}{Sn76489}} (uint8\+\_\+t oe\+Pin)
 \item 
 void \mbox{\hyperlink{classSn76489_a904bb7ddb48bb425181bcdae443c49fb}{reset}} ()
+\item 
+void \mbox{\hyperlink{classSn76489_af292b88ad1659a1fd58a51bddb0cc1dc}{mute}} ()
 \item 
 void \mbox{\hyperlink{classSn76489_a5add4d0735cd8edbd03eb1c54bd09532}{write}} (uint8\+\_\+t data)
 \end{DoxyCompactItemize}
@@ -24,29 +28,48 @@ void \mbox{\hyperlink{classSn76489_a5add4d0735cd8edbd03eb1c54bd09532}{write}} (u
 Class for interfacing with S\+N-\/76489 hardware audio chip. 
 
 \subsection{Constructor \& Destructor Documentation}
-\mbox{\Hypertarget{classSn76489_a16f9e53fdd1e9d7841f520e5600130cd}\label{classSn76489_a16f9e53fdd1e9d7841f520e5600130cd}} 
+\mbox{\Hypertarget{classSn76489_adaca4f1b936a9cc43405391f3f442696}\label{classSn76489_adaca4f1b936a9cc43405391f3f442696}} 
 \index{Sn76489@{Sn76489}!Sn76489@{Sn76489}}
 \index{Sn76489@{Sn76489}!Sn76489@{Sn76489}}
-\subsubsection{\texorpdfstring{Sn76489()}{Sn76489()}}
-{\footnotesize\ttfamily Sn76489\+::\+Sn76489 (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{we\+Pin }\end{DoxyParamCaption})}
+\subsubsection{\texorpdfstring{Sn76489()}{Sn76489()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Sn76489\+::\+Sn76489 (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{oe\+Pin,  }\item[{uint8\+\_\+t}]{we\+Pin }\end{DoxyParamCaption})}
 
-Constructor with $\sim$\+WE pin selection. Creates the S\+N-\/76489 object and initializes the audio chip.
+Constructor with both $\sim$\+OE and $\sim$\+WE pin selection. Creates the S\+N-\/76489 object and initializes the audio chip.
 
 
 \begin{DoxyParams}[1]{Parameters}
-\mbox{\tt in}  & {\em we\+Pin} & Pin where $\sim$\+WE is connected. \\
+\mbox{\tt in}  & {\em oe\+Pin} & Pin where $\sim$\+OE is connected. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classSn76489_aabb1ef1f5c22859a40def06b66dca93f}\label{classSn76489_aabb1ef1f5c22859a40def06b66dca93f}} 
+\index{Sn76489@{Sn76489}!Sn76489@{Sn76489}}
+\index{Sn76489@{Sn76489}!Sn76489@{Sn76489}}
+\subsubsection{\texorpdfstring{Sn76489()}{Sn76489()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Sn76489\+::\+Sn76489 (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{oe\+Pin }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Constructor with $\sim$\+OE pin selection. It assumes $\sim$\+WE is wired to $\sim$\+OE, thus, only one pin is used to control the audio chip. Creates the S\+N-\/76489 object and initializes the audio chip.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em oe\+Pin} & Pin where $\sim$\+OE is connected. \\
 \hline
 \end{DoxyParams}
 
 
 \subsection{Member Function Documentation}
-\mbox{\Hypertarget{classSn76489_a904bb7ddb48bb425181bcdae443c49fb}\label{classSn76489_a904bb7ddb48bb425181bcdae443c49fb}} 
+\mbox{\Hypertarget{classSn76489_af292b88ad1659a1fd58a51bddb0cc1dc}\label{classSn76489_af292b88ad1659a1fd58a51bddb0cc1dc}} 
+\index{Sn76489@{Sn76489}!mute@{mute}}
+\index{mute@{mute}!Sn76489@{Sn76489}}
+\subsubsection{\texorpdfstring{mute()}{mute()}}
+{\footnotesize\ttfamily void Sn76489\+::mute (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Mutes all voices of the audio chip. \mbox{\Hypertarget{classSn76489_a904bb7ddb48bb425181bcdae443c49fb}\label{classSn76489_a904bb7ddb48bb425181bcdae443c49fb}} 
 \index{Sn76489@{Sn76489}!reset@{reset}}
 \index{reset@{reset}!Sn76489@{Sn76489}}
 \subsubsection{\texorpdfstring{reset()}{reset()}}
 {\footnotesize\ttfamily void Sn76489\+::reset (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
-Reset and silence all voices of the audio chip. \mbox{\Hypertarget{classSn76489_a5add4d0735cd8edbd03eb1c54bd09532}\label{classSn76489_a5add4d0735cd8edbd03eb1c54bd09532}} 
+Resets and mutes all voices of the audio chip. \mbox{\Hypertarget{classSn76489_a5add4d0735cd8edbd03eb1c54bd09532}\label{classSn76489_a5add4d0735cd8edbd03eb1c54bd09532}} 
 \index{Sn76489@{Sn76489}!write@{write}}
 \index{write@{write}!Sn76489@{Sn76489}}
 \subsubsection{\texorpdfstring{write()}{write()}}

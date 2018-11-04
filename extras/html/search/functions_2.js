@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['write',['write',['../classSn76489.html#a5add4d0735cd8edbd03eb1c54bd09532',1,'Sn76489']]]
+  ['sn76489',['Sn76489',['../classSn76489.html#adaca4f1b936a9cc43405391f3f442696',1,'Sn76489::Sn76489(uint8_t oePin, uint8_t wePin)'],['../classSn76489.html#aabb1ef1f5c22859a40def06b66dca93f',1,'Sn76489::Sn76489(uint8_t oePin)']]]
 ];

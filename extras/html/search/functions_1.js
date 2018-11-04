@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['sn76489',['Sn76489',['../classSn76489.html#a16f9e53fdd1e9d7841f520e5600130cd',1,'Sn76489']]]
+  ['reset',['reset',['../classSn76489.html#a904bb7ddb48bb425181bcdae443c49fb',1,'Sn76489::reset()'],['../classYm2413.html#a826e19d5236517bd5eedc1f9665495d2',1,'Ym2413::reset()']]]
 ];

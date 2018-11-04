@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.14"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Vgm Player Library: VgmPlayer Class Reference</title>
+<title>Vgm Player Library: src/AudioChips/Ym2413.h File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -59,39 +59,36 @@ $(function() {
 </iframe>
 </div>
 
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_96d8ec9d4a7b8d0d52cc956e414e9590.html">AudioChips</a></li>  </ul>
+</div>
 </div><!-- top -->
 <div class="header">
   <div class="summary">
-<a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="classVgmPlayer-members.html">List of all members</a>  </div>
+<a href="#nested-classes">Classes</a>  </div>
   <div class="headertitle">
-<div class="title">VgmPlayer Class Reference</div>  </div>
+<div class="title">Ym2413.h File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+<div class="textblock"><code>#include &quot;Arduino.h&quot;</code><br />
+</div>
+<p><a href="Ym2413_8h_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
-Public Member Functions</h2></td></tr>
-<tr class="memitem:af7c6f905b483f5c03bbe577cd7898d76"><td class="memItemLeft" align="right" valign="top"><a id="af7c6f905b483f5c03bbe577cd7898d76"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>VgmPlayer</b> (uint8_t noChips, <a class="el" href="classSn76489.html">Sn76489</a> *sn76489=nullptr, <a class="el" href="classYm2612.html">Ym2612</a> *ym2612=nullptr, <a class="el" href="classYm2413.html">Ym2413</a> *ym2413=nullptr)</td></tr>
-<tr class="separator:af7c6f905b483f5c03bbe577cd7898d76"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5021e505b493e4d3e1b9557b2633ce40"><td class="memItemLeft" align="right" valign="top"><a id="a5021e505b493e4d3e1b9557b2633ce40"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>begin</b> (uint8_t chipSelect=kChipSelect)</td></tr>
-<tr class="separator:a5021e505b493e4d3e1b9557b2633ce40"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afdc518a8b12244d723d414e764dad744"><td class="memItemLeft" align="right" valign="top"><a id="afdc518a8b12244d723d414e764dad744"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>read</b> (const String &amp;fileName)</td></tr>
-<tr class="separator:afdc518a8b12244d723d414e764dad744"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aaae3f8ec33c2e3e5fe362d734176cb17"><td class="memItemLeft" align="right" valign="top"><a id="aaae3f8ec33c2e3e5fe362d734176cb17"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>play</b> (bool loop)</td></tr>
-<tr class="separator:aaae3f8ec33c2e3e5fe362d734176cb17"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af430c4f3989886f289e6b40b9006037c"><td class="memItemLeft" align="right" valign="top"><a id="af430c4f3989886f289e6b40b9006037c"></a>
-const <a class="el" href="classVgmReader.html">VgmReader</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>getVgm</b> () const</td></tr>
-<tr class="separator:af430c4f3989886f289e6b40b9006037c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
+Classes</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classYm2413.html">Ym2413</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Class for interfacing with YM-2413 hardware audio chip.  <a href="classYm2413.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<hr/>The documentation for this class was generated from the following files:<ul>
-<li>src/<a class="el" href="VgmPlayer_8h_source.html">VgmPlayer.h</a></li>
-<li>src/<a class="el" href="VgmPlayer_8cpp.html">VgmPlayer.cpp</a></li>
-</ul>
-</div><!-- contents -->
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>This is part of the Vgm Player Library for the Arduino platform.</p>
+<p>Written by Andrés Mata for PensActius</p>
+<p>Copyright (C) 2018 Andrés Mata Bretón</p>
+<p>This program is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation; either version 3 of the License, or (at your option) any later version.</p>
+<p>This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.</p>
+<p>You should have received a copy of the GNU General Public License along with this program; if not, write to the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA </p>
+</div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated by &#160;<a href="http://www.doxygen.org/index.html">

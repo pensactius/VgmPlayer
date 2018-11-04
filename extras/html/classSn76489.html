@@ -76,18 +76,22 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a16f9e53fdd1e9d7841f520e5600130cd"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSn76489.html#a16f9e53fdd1e9d7841f520e5600130cd">Sn76489</a> (uint8_t wePin)</td></tr>
-<tr class="separator:a16f9e53fdd1e9d7841f520e5600130cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adaca4f1b936a9cc43405391f3f442696"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSn76489.html#adaca4f1b936a9cc43405391f3f442696">Sn76489</a> (uint8_t oePin, uint8_t wePin)</td></tr>
+<tr class="separator:adaca4f1b936a9cc43405391f3f442696"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aabb1ef1f5c22859a40def06b66dca93f"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSn76489.html#aabb1ef1f5c22859a40def06b66dca93f">Sn76489</a> (uint8_t oePin)</td></tr>
+<tr class="separator:aabb1ef1f5c22859a40def06b66dca93f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a904bb7ddb48bb425181bcdae443c49fb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSn76489.html#a904bb7ddb48bb425181bcdae443c49fb">reset</a> ()</td></tr>
 <tr class="separator:a904bb7ddb48bb425181bcdae443c49fb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af292b88ad1659a1fd58a51bddb0cc1dc"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSn76489.html#af292b88ad1659a1fd58a51bddb0cc1dc">mute</a> ()</td></tr>
+<tr class="separator:af292b88ad1659a1fd58a51bddb0cc1dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5add4d0735cd8edbd03eb1c54bd09532"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSn76489.html#a5add4d0735cd8edbd03eb1c54bd09532">write</a> (uint8_t data)</td></tr>
 <tr class="separator:a5add4d0735cd8edbd03eb1c54bd09532"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Class for interfacing with SN-76489 hardware audio chip. </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a16f9e53fdd1e9d7841f520e5600130cd"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a16f9e53fdd1e9d7841f520e5600130cd">&#9670;&nbsp;</a></span>Sn76489()</h2>
+<a id="adaca4f1b936a9cc43405391f3f442696"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adaca4f1b936a9cc43405391f3f442696">&#9670;&nbsp;</a></span>Sn76489() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -96,15 +100,58 @@ Public Member Functions</h2></td></tr>
           <td class="memname">Sn76489::Sn76489 </td>
           <td>(</td>
           <td class="paramtype">uint8_t&#160;</td>
-          <td class="paramname"><em>wePin</em></td><td>)</td>
+          <td class="paramname"><em>oePin</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>wePin</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Constructor with ~WE pin selection. Creates the SN-76489 object and initializes the audio chip.</p>
+<p>Constructor with both ~OE and ~WE pin selection. Creates the SN-76489 object and initializes the audio chip.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">wePin</td><td>Pin where ~WE is connected. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">oePin</td><td>Pin where ~OE is connected. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="aabb1ef1f5c22859a40def06b66dca93f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aabb1ef1f5c22859a40def06b66dca93f">&#9670;&nbsp;</a></span>Sn76489() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Sn76489::Sn76489 </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>oePin</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Constructor with ~OE pin selection. It assumes ~WE is wired to ~OE, thus, only one pin is used to control the audio chip. Creates the SN-76489 object and initializes the audio chip.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">oePin</td><td>Pin where ~OE is connected. </td></tr>
   </table>
   </dd>
 </dl>
@@ -112,6 +159,24 @@ Public Member Functions</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
+<a id="af292b88ad1659a1fd58a51bddb0cc1dc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af292b88ad1659a1fd58a51bddb0cc1dc">&#9670;&nbsp;</a></span>mute()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Sn76489::mute </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Mutes all voices of the audio chip. </p>
+
+</div>
+</div>
 <a id="a904bb7ddb48bb425181bcdae443c49fb"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a904bb7ddb48bb425181bcdae443c49fb">&#9670;&nbsp;</a></span>reset()</h2>
 
@@ -126,7 +191,7 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Reset and silence all voices of the audio chip. </p>
+<p>Resets and mutes all voices of the audio chip. </p>
 
 </div>
 </div>
