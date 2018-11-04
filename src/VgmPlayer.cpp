@@ -46,13 +46,11 @@
 #include <util/delay.h>
 
 
-VgmPlayer::VgmPlayer(uint8_t noChips=0,
-                    Sn76489* _sn76489=nullptr, 
-                    Ym2612* ym2612=nullptr)                    
-  :  _noChips (noChips), _sn76489 (_sn76489), _ym2612 (ym2612), _vgm (&_file)
-{  
-  _audioReset();
-}
+VgmPlayer::VgmPlayer(
+    uint8_t noChips=0, Sn76489* sn76489=nullptr, Ym2612* ym2612=nullptr,
+    Ym2413* ym2413=nullptr) :  
+    _noChips(noChips), _sn76489(sn76489), _ym2612(ym2612),_ym2413(ym2413),
+    _vgm (&_file) { _audioReset(); }
 
 bool VgmPlayer::begin(uint8_t chipSelect=kChipSelect)
 {
@@ -121,7 +119,7 @@ void VgmPlayer::play(bool loop)
     _data = _vgm.nextByte();
     switch (_data) {
 
-     // 0x4F dd : PSG stereo, ignored for now
+    // 0x4F dd : PSG stereo, not sure it's correctly implemented
      case 0x4F:
         _sn76489->write (0x06);        
         _data = _vgm.nextByte();
@@ -130,7 +128,7 @@ void VgmPlayer::play(bool loop)
         pauseTime = singleSampleWait;
         break;
         
-     // 0x50 dd : _sn76489 Escribe valor dd
+    // 0x50 dd: SN76489, write value dd
       case 0x50:        
         _data = _vgm.nextByte();
         _sn76489->write (_data);        
@@ -138,8 +136,17 @@ void VgmPlayer::play(bool loop)
         pauseTime = singleSampleWait;
         break;
 
+    // 0x51 aa dd: YM2413, write value dd to register aa
+      case 0x51:
+        _addr = _vgm.nextByte();
+        _data = _vgm.nextByte();
+        _ym2413->write(_addr, _data);
+        startTime = timeInMicros;
+        pauseTime = singleSampleWait;
+        break;
+
     // 0x52 aa dd: YM2612 Port0, write value dd to register aa
-    //   0x53 aa dd: YM2612 Port1, write value dd to register aa
+    // 0x53 aa dd: YM2612 Port1, write value dd to register aa
       case 0x52:
         _addr = _vgm.nextByte();
         _data = _vgm.nextByte();

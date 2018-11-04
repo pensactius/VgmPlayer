@@ -1,5 +1,5 @@
 /*!
- * @file Sn76489.h
+ * @file Ym2413.h
  *
  * This is part of the Vgm Player Library for the Arduino platform. 
  *
@@ -21,35 +21,32 @@
  * along with this program; if not, write to the Free Software Foundation,
  * Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301  USA 
  */
-#ifndef _SN76489_H_
-#define _SN76489_H_
+#ifndef _YM2413_H_
+#define _YM2413_H_
 
 #include "Arduino.h"
 
 /**************************************************************************/
 /*! 
-    @brief  Class for interfacing with SN-76489 hardware audio chip
+    @brief  Class for interfacing with YM-2413 hardware audio chip
 */
 /**************************************************************************/
-class Sn76489
+class Ym2413
 {
 public:
-  /** Constructor with both ~OE and ~WE pin selection. 
-   * Creates the SN-76489 object and initializes the audio chip.
+  /** Constructor with both ~CS, ~WE and ~Ao pin selection. 
+   * Creates the YM-2413 object and initializes the audio chip.
    *
-   * \param[in] oePin 
-   *    Pin where ~OE is connected.
+   * \param[in] csPin 
+   *    Pin where ~CS is connected.
+   * \param[in] wePin 
+   *    Pin where ~WE is connected.
+   * \param[in] AoPin 
+   *    Pin where ~A0 is connected.
+   * \param[in] icPin 
+   *    Pin where ~IC is connected.
    */
-  Sn76489(uint8_t oePin, uint8_t wePin);
-
-  /** Constructor with ~OE pin selection. It assumes ~WE is wired to ~OE,
-   * thus, only one pin is used to control the audio chip.
-   * Creates the SN-76489 object and initializes the audio chip.
-   *
-   * \param[in] oePin 
-   *    Pin where ~OE is connected.
-   */
-Sn76489::Sn76489(uint8_t oePin) : Sn76489(oePin, oePin) {}
+  Ym2413(uint8_t csPin, uint8_t wePin, uint8_t AoPin, uint8_t icPin);
 
   /** Resets and mutes all voices of the audio chip.
    *
@@ -59,19 +56,23 @@ Sn76489::Sn76489(uint8_t oePin) : Sn76489(oePin, oePin) {}
   /** Mutes all voices of the audio chip.
    *
    */
-  void mute();
+  void mute(); 
 
-  /** Writes a data byte to the audio chip.
+  /** Writes 'data' value to register 'reg'
    *
+   * \param[in] reg
+   *    Register address selection
    * \param[in] data 
-   *    Byte value to send to the audio chip.
+   *    Data value to write into register
    */
-  void write(uint8_t data);
+  void write(uint8_t reg, uint8_t data);
   /**************************************************************************/
 private:
    // Control bus pins.
-  uint8_t _oePin;                             // ~OE pin (Chip Select)
+  uint8_t _csPin;                             // ~OE pin (Chip Select)
   uint8_t _wePin;                             // ~WE pin (Write)
+  uint8_t _aoPin;                             // ~Ao pin (Reg/Data selection)
+  uint8_t _icPin;                             // ~IC 
 
 #if defined (__AVR_ATmega328P__)              // Arduino UNO, Nano, etc.
 

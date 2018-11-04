@@ -20,15 +20,21 @@
 #include "Arduino.h"
 #include "Sn76489.h"
 
-Sn76489::Sn76489(uint8_t wePin) : _wePin (wePin) 
+Sn76489::Sn76489(uint8_t oePin, uint8_t wePin) : 
+    _wePin (wePin), _oePin (oePin)
 {
   _dataControl = 0xFF;          // Data BUS as OUTPUT
   pinMode (_wePin, OUTPUT);     // ~WE OUTPUT
-  digitalWrite (_wePin, HIGH);  // Disable chip by default
+  pinMode (_oePin, OUTPUT);     // ~OE OUTPUT
+  digitalWrite (_oePin, HIGH);  // Disable chip by default
 }
 
 void Sn76489::reset()
 {
+  mute();
+}
+
+void Sn76489::mute() {
   write (0x9F); // Silence channel 1
   write (0xBF); // Silence channel 2
   write (0xDF); // Silence channel 3
@@ -37,9 +43,15 @@ void Sn76489::reset()
 
 void Sn76489::write(uint8_t data)
 {
+  digitalWrite (_oePin, 1);     // ~OE HIGH
   digitalWrite (_wePin, 1);     // ~WE HIGH  
+
   _dataPort = data;             // Data to BUS
+
+  digitalWrite (_oePin, 0);     // ~OE LOW
   digitalWrite (_wePin, 0);     // ~WE LOW
   delayMicroseconds (14); 
+
   digitalWrite (_wePin, 1);     // ~WE HIGH
+  digitalWrite (_oePin, 1);     // ~OE HIGH
 }

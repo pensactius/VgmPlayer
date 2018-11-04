@@ -28,6 +28,7 @@
 
 #include "AudioChips/Sn76489.h"
 #include "AudioChips/Ym2612.h"
+#include "AudioChips/Ym2413.h"
 #include "VgmReader.h"
 #include "SdFat.h"
 
@@ -42,7 +43,11 @@
 class VgmPlayer
 {
 public:
-  VgmPlayer(uint8_t noChips, Sn76489* sn76489=nullptr, Ym2612* ym2612=nullptr);
+  VgmPlayer(
+      uint8_t noChips, 
+      Sn76489* sn76489=nullptr, 
+      Ym2612* ym2612=nullptr, 
+      Ym2413* ym2413=nullptr);
   bool begin(uint8_t chipSelect=kChipSelect);
   bool read(const String &fileName);
   void play(bool loop);
@@ -53,7 +58,8 @@ private:
 
   uint8_t       _noChips;
   Sn76489*      _sn76489;
-  Ym2612*       _ym2612;  
+  Ym2612*       _ym2612;
+  Ym2413*       _ym2413; 
   VgmReader     _vgm;
   uint8_t       _addr, _data;
   unsigned long _currentTime;
