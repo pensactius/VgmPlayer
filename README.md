@@ -5,6 +5,7 @@ The Vgm Player Library provides a simple library to read Video Game Music (VGM) 
 Chips supported:
 - SN-76489
 - YM-2612 (_FM only, not fully tested!_)
+- YM-2413
 
 The following boards are supported:
 - Arduino UNO/Nano 
